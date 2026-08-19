@@ -1,0 +1,14 @@
+# Arquivos do sistema operacional
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Página padrao da Hostinger: PHP nao roda no GitHub Pages, entao este
+# arquivo fica fora do repositorio (pode ser apagado com seguranca).
+default.php

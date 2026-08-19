@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página não encontrada - 2C Sistemas</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" id="favicon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Estilos embutidos: o 404 é servido em qualquer caminho, entao nao pode
+         depender de styles.css por caminho relativo. -->
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.25rem;
+            background: #f8fafc;
+        }
+        .box { max-width: 560px; text-align: center; }
+        .code {
+            font-size: clamp(5rem, 18vw, 8rem);
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        h1 { font-size: 1.75rem; margin: 0.5rem 0 1rem; }
+        p { color: #6b7280; margin-bottom: 2rem; }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            color: #fff;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="code">404</div>
+        <h1>Página não encontrada</h1>
+        <p>O endereço que você acessou não existe ou foi movido.</p>
+        <a href="/" class="btn" id="home-link">Voltar ao início</a>
+    </div>
+
+    <script>
+        // Em project page (usuario.github.io/repositorio/) a raiz do site e o
+        // primeiro segmento do caminho, e nao "/". Nesse caso toda URL de 404
+        // tem pelo menos 2 segmentos, porque "/repositorio/" e o proprio index.
+        (function () {
+            var parts = location.pathname.split('/').filter(Boolean);
+            var base = '/';
+            if (location.hostname.endsWith('github.io') && parts.length > 1) {
+                base = '/' + parts[0] + '/';
+            }
+            document.getElementById('home-link').setAttribute('href', base);
+            document.getElementById('favicon').setAttribute('href', base + 'favicon.svg');
+        })();
+    </script>
+</body>
+</html>
